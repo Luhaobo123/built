@@ -1,0 +1,53 @@
+第三题 递归法：
+#include<stdio.h>
+int fib(int n)
+{
+	if(n<=2)
+	     return 1;
+	else
+	     return fib(n-1)+fib(n-2);
+} 
+int main()
+{
+	int n=0;
+	scanf("%d",&n);
+	for(int i=1;i<=n;i++)
+	{
+	int ret = fib(i);
+	printf("%d ",ret);
+    }
+	return 0;
+}
+
+递推法：
+#include<stdio.h>
+int fib(int n)
+{
+	if(n<=2)
+	    return 1;
+	int last1=1;
+	int last2=1;
+	int result=0;
+	while(n>2)
+	{
+		result=last1+last2;
+		last1=last2;
+		last2=result;
+		n--;
+	}   
+	return result;
+	
+}
+int main()
+{
+	int n=0;
+	scanf("%d",&n);
+	for(int i=1;i<=n;i++)
+	{
+	int ret = fib(i);    //该代码在for循环里执行n次
+	printf("%d ",ret);
+                }
+	
+	return 0;
+}
+//该代码的时间复杂度为O(n)
